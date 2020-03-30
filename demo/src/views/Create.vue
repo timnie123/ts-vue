@@ -92,8 +92,8 @@
     // @State private todoItem!: ITodoItem[];
     @recordGetter private getCurrentTodoList!: ITodoItem[];
     // 获取当前将要创建的todo的id
-    private mounted() {
-      console.log(this.getCurrentTodoList);
+    private created() {
+      console.log(1,this.getCurrentTodoList);
       const list = this.getCurrentTodoList;
       this.index = list.length - 1;
       const currentItem = list[this.index];

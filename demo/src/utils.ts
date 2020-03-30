@@ -24,22 +24,13 @@ export const utils = {
 
   // 通过id查找相关任务对象的Index
   findIndex(arr: ITodoItem[], id: string):number {
-    let low: number = 0;
-    let high: number = arr.length - 1;
-    let mid: number;
-    let currentId: string;
-    while (low <= high) {
-      mid = Math.floor(low + (high - low) / 2);
-      currentId = arr[mid].id;
-      if (currentId < id) {
-        low = mid + 1;
-      } else if (currentId > id) {
-        high = mid - 1;
-      } else {
-        return mid;
+    let res:number = -1;
+    arr.forEach((item, index) => {
+      if (item.id === id) {
+        res = index;
       }
-    }
-    return -1;
+    });
+    return res;
   },
   uuid(): string {
     return nanoid();
